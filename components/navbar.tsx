@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
 const Navbar = ({ children }: { children: React.ReactNode}) => {
-    const router = useRouter()
 
     const menuItems = [
         {

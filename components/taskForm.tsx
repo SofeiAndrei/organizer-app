@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { firestore } from "../utils/firebaseConfig";
-import { doc, setDoc } from "firebase/firestore";
 
 export default function TaskForm(props:{addTask}){
     const [name, setName] = useState("")

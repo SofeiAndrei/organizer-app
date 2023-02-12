@@ -1,15 +1,13 @@
 import { useRouter } from "next/router"
 import { firestore } from "../../utils/firebaseConfig"
-import { collection, query, where, getDocs, QueryDocumentSnapshot, DocumentData, updateDoc, doc, deleteDoc, getDoc, setDoc } from "firebase/firestore"
+import { collection, query, where, getDocs, updateDoc, doc, deleteDoc, setDoc } from "firebase/firestore"
 import React, { useEffect, useState } from "react"
 import TaskForm from "../../components/taskForm"
 import Task from "../../components/task"
 
 export default function TaskList(){
     const [email, setEmail] = useState("")
-    const [filters, setFilters] = useState([])
     const [tasks, setTasks] = useState([])
-    const [loading, setLoading] = useState(true)
 
     const todosCollection = collection(firestore, "tasks")
     const router = useRouter()
@@ -75,10 +73,6 @@ export default function TaskList(){
             alert("You must connect via the email first!")
         }
         getTasks()
-
-        setTimeout(() => {
-            setLoading(false)
-        }, 2000)
     }, [])
 
     return (

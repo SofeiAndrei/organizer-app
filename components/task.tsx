@@ -1,11 +1,7 @@
-import { async } from "@firebase/util";
-import { doc, updateDoc, deleteDoc, documentId } from "firebase/firestore";
 import { useState } from "react";
-import { firestore } from "../utils/firebaseConfig";
 export default function Task(props:{taskData, updateTask, deleteTask}){
     const [done, setDone] = useState(props.taskData.done)
 
-    console.log(props.taskData)
     const doneButtonValue = () => {
         if(done){
             return "Done"

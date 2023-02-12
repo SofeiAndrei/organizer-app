@@ -4,63 +4,58 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
-  const [email, setEmail] = useState("")
-  const [hasEmail, setHasEmail] = useState(false)
-  const router = useRouter();
+    const [email, setEmail] = useState("")
+    const [hasEmail, setHasEmail] = useState(false)
+    const router = useRouter();
   
-  useEffect(() => {
-    if(!router.isReady){
-        return
-    }
+    useEffect(() => {
+        if(!router.isReady){
+            return
+        }
 
-    if(localStorage.getItem("email")){
-      setHasEmail(true)
-    }
-  })
+        if(localStorage.getItem("email")){
+            setHasEmail(true)
+        }
+    })
 
-  return (
-    <div>
-      { !hasEmail ? (
+    return (
         <div>
-          <form>
-            <input
-            className="border p-2"
-            placeholder="Email"
-            value={email}
-            onChange={({ target }) => {
-              setEmail(target.value);
-            }}
-          />
-          <button
-            onClick={(event) => {
-              event.preventDefault()
-              localStorage.setItem("email", email)
-              setHasEmail(true)
-              setEmail("")
-            }}>
-            Enter
-          </button>
-          </form>
+            { !hasEmail ? (
+                <div>
+                    <form>
+                        <input
+                            className="border p-2"
+                            placeholder="Email"
+                            value={email}
+                            onChange={({ target }) => {
+                                setEmail(target.value);
+                            }}
+                        />
+                        <button
+                            onClick={(event) => {
+                                event.preventDefault()
+                                localStorage.setItem("email", email)
+                                setHasEmail(true)
+                                setEmail("")
+                            }}>
+                        Enter
+                        </button>
+                    </form>
+                </div>
+            ) : (
+                <div>
+                    <div>You are already connected, you can see your task list now!</div>
+                    <button
+                        onClick={(event) => {
+                            event.preventDefault()
+                            localStorage.removeItem("email")
+                            setHasEmail(false)
+                            setEmail("")
+                        }}>
+                    Log Out
+                    </button>
+                </div>
+            )}
         </div>
-      ) : (
-        <div>
-          <div>
-            You are already connected, you can see your task list now!
-          </div>
-          <button
-            onClick={(event) => {
-              event.preventDefault()
-              localStorage.removeItem("email")
-              setHasEmail(false)
-              setEmail("")
-            }}>
-            Log Out
-          </button>
-        </div>
-      )
-      }
-      Salut
-      Formular aici sa iti bagi email-ul in local storage daca nu e deja
-    </div>
-  )
+    )
 }

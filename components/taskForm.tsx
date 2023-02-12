@@ -18,6 +18,7 @@ export default function TaskForm(props:{addTask}){
         <div className="taskFormContainer">
             <form>
                 <input
+                    className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                     type="text"
                     minLength={1}
                     value={name}
@@ -26,7 +27,9 @@ export default function TaskForm(props:{addTask}){
                     }}
                     placeholder="Task Name">
                 </input>
+                <br/>
                 <input
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                     type="text"
                     maxLength={100}
                     value={description}
@@ -35,7 +38,9 @@ export default function TaskForm(props:{addTask}){
                     }}
                     placeholder="Task Description">
                 </input>
+                <br/>
                 <button
+                    className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                     onClick={(event) => {
                         event.preventDefault()
                         handleTaskFormSubmit({

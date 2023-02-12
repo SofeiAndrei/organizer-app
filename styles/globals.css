@@ -39,3 +39,9 @@ button {
   padding: 0.5rem 1rem;
   font-weight: bold;
 }
+
+task {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}

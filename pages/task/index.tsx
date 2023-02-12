@@ -18,10 +18,6 @@ export default function TaskList(){
         
         const result = querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
 
-        console.log("NEW TASKS AFTER DEL")
-        console.log(result)
-        console.log("OLD TASKS")
-        console.log(tasks)
         setTasks(result)
     }
     
@@ -82,7 +78,8 @@ export default function TaskList(){
                 <div>
                     <TaskForm addTask={addTask}/>
                     <div>{tasks.length} Tasks!!</div>
-                    <div>
+                    <div
+                        className="grid place-items-center">
                         {tasks.map((val, key) => {
                             return (
                                 <div key={key}>
